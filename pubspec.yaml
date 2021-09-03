@@ -29,7 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons:
   carousel_slider:
-
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +50,7 @@ flutter:
   assets:
     - assets/
     - assets/login/
+    - assets/slider/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'loginHomePage.dart';
 import 'loginpage/login.dart';
+import 'loginpage/slider-swipeup.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:loginPage(),
+      home:LoginHomePage(),
     );
   }
 }
