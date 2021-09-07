@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ecommerce/pages/HomePage/LandingPage.dart';
 import 'package:flutter/material.dart';
 
 final List<String> imgList = [
@@ -49,20 +50,26 @@ class _loginPageState extends State<loginPage> {
   ))
       .toList();
   final _text = TextEditingController();
+  final _text1 = TextEditingController();
   bool _validate = false;
   @override
   void dispose() {
     _text.dispose();
     super.dispose();
   }
+  late  double width,height,width2,height2;
   Widget build(BuildContext context) {
+    width=MediaQuery.of(context).size.width;
+    height=MediaQuery.of(context).size.height;
+    width2=width-16;
+    height2=height-16;
     return SafeArea(
         child: Scaffold(
           backgroundColor: Color(0Xffffffff),
           body: Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
                         height:250,
@@ -110,6 +117,7 @@ class _loginPageState extends State<loginPage> {
                       ),
                       SizedBox(height: 10,),
                       Container(
+                        alignment: AlignmentDirectional.centerStart,
                         padding: EdgeInsets.only(left: 30),
                         child:Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,34 +135,34 @@ class _loginPageState extends State<loginPage> {
                         child: Column(
                           children: [
                             Padding(
-                              padding:  EdgeInsets.only(left: 25, right: 25, top:10),
+                              padding:  EdgeInsets.only(left: 12, right: 25, top:10),
                               child: TextField(
                                 keyboardType: TextInputType.number,
                                 controller: _text,
                                 textAlignVertical: TextAlignVertical.center,
                                 textAlign: TextAlign.left,
                                 maxLines: 1,
-                                style:TextStyle(fontSize: 14,fontFamily:'RR',color:Colors.white,letterSpacing: 4.0,),
+                                style:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFF000000),letterSpacing: 1.0,),
                                 decoration: InputDecoration(
                                   fillColor: Colors.white,
-                                  enabledBorder: OutlineInputBorder(
+                                  enabledBorder: UnderlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                       borderSide: BorderSide(color: Colors.black)
                                   ),
-                                  border: OutlineInputBorder(
+                                  border: UnderlineInputBorder(
                                       borderRadius: BorderRadius.circular(30.0),
                                       borderSide: BorderSide(color: Colors.white)
                                   ),
-                                  focusedBorder: OutlineInputBorder(
+                                  focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.green),
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
-                                  errorBorder: OutlineInputBorder(
+                                  errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.white),
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
 
-                                  hintText: 'Enter Your Phone Number',
+                                  hintText: 'Enter Email / Phone Number',
                                   errorStyle: TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
                                   contentPadding:EdgeInsets.symmetric(vertical: 18, horizontal: 20),
                                   hintStyle:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
@@ -166,9 +174,120 @@ class _loginPageState extends State<loginPage> {
                                 // ],
                               ),
                             ),
+                            Padding(
+                              padding:  EdgeInsets.only(left: 12, right: 25, top:10),
+                              child: TextField(
+                                keyboardType: TextInputType.number,
+                                controller: _text1,
+                                textAlignVertical: TextAlignVertical.center,
+                                textAlign: TextAlign.left,
+                                maxLines: 1,
+                                style:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFF000000),letterSpacing: 1.0,),
+                                decoration: InputDecoration(
+                                  fillColor: Colors.white,
+                                  enabledBorder: UnderlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                      borderSide: BorderSide(color: Colors.black)
+                                  ),
+                                  border: UnderlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                      borderSide: BorderSide(color: Colors.white)
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.green),
+                                    borderRadius: BorderRadius.circular(30.0),
+                                  ),
+                                  errorBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: Colors.white),
+                                    borderRadius: BorderRadius.circular(30.0),
+                                  ),
+
+                                  hintText: 'Enter Password',
+                                  errorStyle: TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
+                                  contentPadding:EdgeInsets.symmetric(vertical: 18, horizontal: 20),
+                                  hintStyle:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
+                                  errorText: _validate ? 'Value Can\'t Be Empty' : null,
+                                ),
+                                // inputFormatters: [
+                                //   FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                                //   LengthLimitingTextInputFormatter(10),
+                                // ],
+                              ),
+                            ),
+                            SizedBox(height: 5,),
+                            Container(
+                              width: width*0.83,
+                              child: RichText(
+                                text: TextSpan(
+                                  text: 'By Continuing, you agree to ',
+                                  style: TextStyle(color: Color(0xff767676),fontSize: 12,fontFamily: 'RI'),
+                                  children: const <TextSpan>[
+                                    TextSpan(text: ' E-Commerce', style: TextStyle(fontSize: 14,fontFamily: 'RB',color: Color(0XFF6A8528))),
+                                    TextSpan(text: ' Terms of Use and Privacy Policy', style: TextStyle(fontSize: 12,fontFamily: 'RI',color: Color(0xff767676)),),
+                                  ],
+                                ),
+
+                              ),
+                            ),
                           ],
                         ),
-                      )
+                      ),
+                      SizedBox(height: 20,),
+                      GestureDetector(
+                        onTap: (){
+
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()),);
+
+
+                        },
+                        child: Container(
+                          width: width*0.9,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            // boxShadow: [
+                            //   BoxShadow(color: Colors.green, spreadRadius: 3),
+                            // ],
+                            color: Color(0XFF6A8528),
+                          ),
+                          child:Center(child: Text('Login',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Color(0xffffffff),fontFamily:'RR'), )) ,
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      GestureDetector(
+                        onTap: (){
+                          //
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>Masterpage()),);
+
+                        },
+                        child: Container(
+                          width: width*0.9,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            // boxShadow: [
+                            //   BoxShadow(color: Colors.green, spreadRadius: 3),
+                            // ],
+                            color: Color(0XFFEAEDF2),
+                          ),
+                          child:Center(child: Text('Request',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: Color(0xff4B4B4B),fontFamily:'RR'), )) ,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        padding: EdgeInsets.only(bottom: 30),
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'New to ',
+                            style: TextStyle(color: Color(0xff767676),fontSize: 14,fontFamily: 'RR'),
+                            children: const <TextSpan>[
+                              TextSpan(text: ' E-Commerce ?', style: TextStyle(fontSize: 14,fontFamily: 'RB',color: Color(0XFF6A8528))),
+                              TextSpan(text: ' Create an account', style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff767676)),),
+                            ],
+                          ),
+
+                        ),
+                      ),
                     ],
                   ),
           ),

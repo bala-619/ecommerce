@@ -120,7 +120,7 @@ class _SlideSwipeState extends State<SlideSwipe> {
                         items: imageSliders,
                         carouselController: _controller,
                         options: CarouselOptions(
-                          height: height*0.7,
+                          height: height*0.6,
                             autoPlay: true,
                             viewportFraction: 2,
                             pageSnapping: false,

@@ -1,7 +1,9 @@
-import 'package:ecommerce/loginpage/login.dart';
-import 'package:ecommerce/loginpage/slider-swipeup.dart';
+
 import 'package:ecommerce/widgets/size.dart';
 import 'package:flutter/material.dart';
+
+import 'pages/loginpage/login.dart';
+import 'pages/loginpage/slider-swipeup.dart';
 class LoginHomePage extends StatefulWidget {
   const LoginHomePage({Key? key}) : super(key: key);
 
