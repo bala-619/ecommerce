@@ -23,21 +23,10 @@ class _ThemeSettingsState extends State<ThemeSettings> {
 
   List<ThemeModel> ThemeList=[
     ThemeModel(title:'G', selectColor: Color(0xff6A8528), unSelectColor: Color(0xff6A8528),),
-    ThemeModel(title:'B', selectColor: Color(0xff4B5AFF), unSelectColor: Color(0xff4B5AFF),),
-    ThemeModel(title:'P', selectColor: Color(0xffE8F00FF), unSelectColor: Color(0xff8F00FF),),
-    ThemeModel(title:'DB', selectColor: Color(0xff4B5AFF), unSelectColor: Color(0xff4B5AFF),textColor:Color(0xff06C2FF)),
-    ThemeModel(title:'V', selectColor: Color(0xffBA04C9), unSelectColor: Color(0xffBA04C9),),
-    ThemeModel(title:'EN', selectColor: Color(0xff626262), unSelectColor: Color(0xff626262),),
-    ThemeModel(title:'EN', selectColor: Color(0xffFFCC00), unSelectColor: Color(0xffFFCC00),textColor:Color(0xff000000)),
-    ThemeModel(title:'EN', selectColor: Color(0xff019801), unSelectColor: Color(0xff019801),),
-    ThemeModel(title:'EN', selectColor: Color(0xffFF2F97), unSelectColor: Color(0xffFF2F97),),
-    ThemeModel(title:'EN', selectColor: Color(0xffFF6600), unSelectColor: Color(0xffFF6600),),
-    ThemeModel(title:'EN', selectColor: Color(0xffFE0000), unSelectColor: Color(0xffFE0000),),
-    ThemeModel(title:'EN', selectColor: Color(0xff333333), unSelectColor: Color(0xff333333),),
-    ThemeModel(title:'EN', selectColor: Color(0xff0033CC), unSelectColor: Color(0xff0033CC),),
-    ThemeModel(title:'EN', selectColor: Color(0xff9933FF), unSelectColor: Color(0xff9933FF),),
-    ThemeModel(title:'EN', selectColor: Color(0xff00CCFF), unSelectColor: Color(0xff00CCFF),),
-
+    ThemeModel(title:'OR', selectColor: Color(0xffFB5837), unSelectColor: Color(0xffFB5837),),
+    ThemeModel(title:'P', selectColor: Color(0xff7064F6), unSelectColor: Color(0xff7064F6),),
+    ThemeModel(title:'Y', selectColor: Color(0xffFF9B31), unSelectColor: Color(0xffFF9B31),),
+    ThemeModel(title:'B', selectColor: Color(0xff1B9BFC), unSelectColor: Color(0xff1B9BFC),),
   ];
   bool theme=false;
   @override
@@ -85,7 +74,7 @@ class _ThemeSettingsState extends State<ThemeSettings> {
                     child: Column(
                       children: [
                         Container(
-                          child: Image.asset("assets/settings/theme-icon/mockup.png",width: 120,),
+                          child: Image.asset("assets/slider/mockup.png",width: 120,),
                         ),
                         SizedBox(height:20,),
                         SizedBox(height: 35,),
