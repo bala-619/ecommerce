@@ -27,19 +27,56 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children:[
                 Container(
-                  height: 150,
+                  height: 120,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
                     color: tn.primaryColor
                   ),
-                  child: Container(
-                    child: Row(
-                      children: [
-                        IconButton(onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ThemeSettings()));
-                        }, icon: Icon(Icons.dashboard_outlined,color: Colors.white,))
-                      ],
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                       child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ThemeSettings()));
+                            }, icon: Icon(Icons.dashboard_outlined,color: Colors.white,)),
+                            Container(
+                              padding: EdgeInsets.only(right: 15.0),
+                              child:   Row(
+                                children: [
+                                  Icon(Icons.dashboard_outlined,color: Colors.white,),
+                                  Text('Fresh & Eat',style: TextStyle(fontFamily: 'RI',fontSize: 14,color: Colors.white),)
+                                ],
+                              )
+                            ),
+                            
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 10,),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ThemeSettings()));
+                            }, icon: Icon(Icons.dashboard_outlined,color: Colors.white,)),
+                            Container(
+                                padding: EdgeInsets.only(right: 15.0),
+                                child:   Row(
+                                  children: [
+                                    Icon(Icons.dashboard_outlined,color: Colors.white,),
+                                    Text('Fresh & Eat',style: TextStyle(fontFamily: 'RI',fontSize: 14,color: Colors.white),)
+                                  ],
+                                )
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 )
                 ],
