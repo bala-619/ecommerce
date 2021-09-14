@@ -1,7 +1,9 @@
 import 'package:ecommerce/notifiers/themeNotifier.dart';
+import 'package:ecommerce/pages/HomePage/LandingPage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'loginHomePage.dart';
+import 'pages/loginpage/login.dart';
 
 
 void main() {
@@ -31,7 +33,8 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home:LoginHomePage(),
+     //   home:HomePage(),
+        home: LoginHomePage(),
       ),
     );
   }

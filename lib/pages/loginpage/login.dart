@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/pages/HomePage/LandingPage.dart';
 import 'package:flutter/material.dart';
 
+import '../navHomeScreen.dart';
+
 final List<String> imgList = [
   'assets/login/login-bg.jpg',
   'assets/login/login-1.jpg',
@@ -236,7 +238,7 @@ class _loginPageState extends State<loginPage> {
                       GestureDetector(
                         onTap: (){
 
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Masterpage()),);
 
 
                         },

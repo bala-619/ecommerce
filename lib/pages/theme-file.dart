@@ -12,7 +12,8 @@ class ThemeModel{
 }
 
 class ThemeSettings extends StatefulWidget {
-
+  VoidCallback voidCallback;
+  ThemeSettings({required this.voidCallback});
 
   @override
   _ThemeSettingsState createState() => _ThemeSettingsState();
@@ -54,7 +55,7 @@ class _ThemeSettingsState extends State<ThemeSettings> {
                         padding: const EdgeInsets.only(left:8.0, right: 8.0),
                         child: GestureDetector(
                           onTap: (){
-                            Navigator.pop(context,);
+                            widget.voidCallback();
                           },
                           child: SvgPicture.asset("assets/login/backward-01.svg",width: 30,color:Colors.white ,),
                         ),
@@ -119,7 +120,7 @@ class _ThemeSettingsState extends State<ThemeSettings> {
                         SizedBox(height: 30.0,),
                         GestureDetector(
                           onTap: (){
-                            Navigator.pop(context);
+                         //   Navigator.pop(context);
                           },
                           child: AnimatedContainer(
                             duration: Duration(milliseconds: 300),

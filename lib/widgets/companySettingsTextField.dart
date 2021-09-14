@@ -1,4 +1,4 @@
-import 'package:ecommerce/widgets/size.dart';
+import 'package:ecommerce/styles/size.dart';
 import 'package:flutter/material.dart';
 
 class CompanySettingsTextField extends StatelessWidget {
