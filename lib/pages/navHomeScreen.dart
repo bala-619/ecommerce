@@ -1,4 +1,5 @@
 import 'package:ecommerce/notifiers/themeNotifier.dart';
+import 'package:ecommerce/styles/constants.dart';
 import 'package:ecommerce/styles/size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -40,54 +41,49 @@ class _MasterpageState extends State<Masterpage> {
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: 50,
-                  color:tn.primaryColor,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // Container(child: Image.asset("assets/images/logo-white.png", width:40)),
-                      Container(
-                        child: Text('E-Commerce',style: TextStyle(color: Color(0xffffffff),fontSize: 16,fontWeight: FontWeight.bold,fontFamily: 'RR'),),
-                      )
-                    ],
-                  ),
+                SizedBox(height: 5,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(onPressed: (){
+                      scaffoldkey.currentState!.openEndDrawer();
+                      // Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ThemeSettings()));
+                    }, icon: Icon(Icons.clear,color: Colors.white,size: 28,),),
+                    Container(
+                        padding: EdgeInsets.only(right: 15.0),
+                        child:   Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8.0),
+                              child: Image.asset('assets/logo.png',width:28,),
+                            ),
+                            Text('Fresh & Eat',style: TextStyle(fontFamily: 'RI',fontSize: 16,color: Colors.white,fontWeight: FontWeight.bold),)
+                          ],
+                        )
+                    ),
+
+                  ],
                 ),
-                Container(
-                  height: 40,
-                  alignment: Alignment.centerLeft,
-                  decoration: BoxDecoration(
-                    // color: Colors.red
-                    //  border: Border(bottom: BorderSide())
-                  ),
-                  child: ListTile(
-                    leading:SvgPicture.asset("assets/side-icon/dashboard.svg",width: 25,color:tn.primaryColor1,),
-                    title: Text('Home Page', style: TextStyle(fontSize: 20,color:tn.primaryColor1, fontFamily:'RR'), ),
-                    onTap: (){
+                DrawerContent(
+                    title: 'Home Page',
+                    ontap: (){
                       setState(() {
                         menuSel=1;
                       });
                       scaffoldkey.currentState!.openEndDrawer();
                     },
-
-                  ),
                 ),
-                Container(
-                  height: 40,
-                  alignment: Alignment.centerLeft,
-                  decoration: BoxDecoration(),
-                  child: ListTile(
-                    leading:SvgPicture.asset("assets/side-icon/settings.svg",width: 25,color:tn.primaryColor1,),
-                    title: Text('Theme', style: TextStyle(fontSize: 20,color:tn.primaryColor1, fontFamily:'RR'), ),
-                    onTap: (){
+                DrawerContent(
+                    title: 'Theme',
+                    ontap: (){
                       setState(() {
                         menuSel=2;
                       });
                       scaffoldkey.currentState!.openEndDrawer();
                     },
-                  ),
                 ),
+
+
 
 
                 // Divider(color: Color(0xff099FAF),thickness: 0.1,),
@@ -112,3 +108,49 @@ class _MasterpageState extends State<Masterpage> {
     );
   }
 }
+
+class DrawerContent extends StatelessWidget {
+  String title;
+  VoidCallback ontap;
+  DrawerContent({required this.title,required this.ontap});
+  late double width;
+
+  @override
+  Widget build(BuildContext context) {
+    width=MediaQuery.of(context).size.width;
+    return Consumer<ThemeNotifier>(
+      builder:(ctx,tn,child)=>  GestureDetector(
+        onTap: ontap,
+        child: Container(
+          height: 50,
+          width: width,
+          color: Colors.transparent,
+          margin: EdgeInsets.only(top: 5,bottom: 5),
+          child: Row(
+            children: [
+              SizedBox(width: 20,),
+              Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                    color: tn.primaryColor3,
+                    borderRadius: BorderRadius.circular(10)
+                ),
+              ),
+              SizedBox(width: 20,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("$title",
+                    style: TextStyle(fontFamily: 'RR',fontSize: 18,color: Colors.white,letterSpacing: 0.1),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+

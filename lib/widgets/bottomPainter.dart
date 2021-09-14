@@ -60,16 +60,18 @@ class RPSCustomPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
 
     Path path_0 = Path();
-    path_0.moveTo(size.width*0.5915770,size.height*0.01539431);
-    path_0.arcToPoint(Offset(size.width*0.5750000,size.height*0.1174478),radius: Radius.elliptical(size.width*0.01668500, size.height*0.1026769),rotation: 0 ,largeArc: false,clockwise: false);
-    path_0.lineTo(size.width*0.5750000,size.height*0.1429963);
-    path_0.arcToPoint(Offset(size.width*0.4250000,size.height*0.1429963),radius: Radius.elliptical(size.width*0.07500000, size.height*0.4615385),rotation: 0 ,largeArc: false,clockwise: true);
-    path_0.lineTo(size.width*0.4250000,size.height*0.1172638);
-    path_0.arcToPoint(Offset(size.width*0.4083159,size.height*0.01539431),radius: Radius.elliptical(size.width*0.01668690, size.height*0.1026886),rotation: 0 ,largeArc: false,clockwise: false);
-    path_0.lineTo(0,size.height*0.01539431);
+    path_0.moveTo(size.width*0.5982458,size.height*0.07697246);
+    path_0.arcToPoint(Offset(size.width*0.5875000,size.height*0.1417205),radius: Radius.elliptical(size.width*0.01075715, size.height*0.06619785),rotation: 0 ,largeArc: false,clockwise: false);
+    path_0.lineTo(size.width*0.5875000,size.height*0.2156769);
+    path_0.arcToPoint(Offset(size.width*0.5000000,size.height*0.7541385),radius: Radius.elliptical(size.width*0.08750000, size.height*0.5384615),rotation: 0 ,largeArc: false,clockwise: true);
+    path_0.lineTo(size.width*0.4999999,size.height*0.7541385);
+    path_0.arcToPoint(Offset(size.width*0.4125000,size.height*0.2156769),radius: Radius.elliptical(size.width*0.08750000, size.height*0.5384615),rotation: 0 ,largeArc: false,clockwise: true);
+    path_0.lineTo(size.width*0.4125000,size.height*0.1415438);
+    path_0.arcToPoint(Offset(size.width*0.4017575,size.height*0.07697246),radius: Radius.elliptical(size.width*0.01075538, size.height*0.06618692),rotation: 0 ,largeArc: false,clockwise: false);
+    path_0.lineTo(0,size.height*0.07697246);
     path_0.lineTo(0,size.height);
     path_0.lineTo(size.width,size.height);
-    path_0.lineTo(size.width,size.height*0.01539431);
+    path_0.lineTo(size.width,size.height*0.07697246);
     path_0.close();
 
     Paint paint_0_fill = Paint()..style=PaintingStyle.fill;

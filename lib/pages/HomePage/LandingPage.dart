@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children:[
-                    Container(
+                      Container(
                       height: 120,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
@@ -63,7 +63,10 @@ class _HomePageState extends State<HomePage> {
                                 IconButton(onPressed: (){
                                   widget.voidCallback();
                                  // Navigator.push(context, MaterialPageRoute(builder: (ctx)=>ThemeSettings()));
-                                }, icon: Image.asset('assets/menu.png',width:20,),),
+                                },
+                                  icon: Image.asset('assets/menu.png',width:20,),
+                               //   icon: Icon(Icons.menu,color: Colors.white,size: 30,),
+                                ),
                                 Container(
                                   padding: EdgeInsets.only(right: 15.0),
                                   child:   Row(
@@ -189,12 +192,14 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: 10,),
                       Container(
                         width: SizeConfig.screenWidth,
-                         height: 65,
+                           height: 70,
+                      //  padding: EdgeInsets.only(bottom: 10),
                         alignment: Alignment.centerLeft,
                         child: ListView.builder(
                           physics: BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
                           itemCount: 10,
+                          shrinkWrap: true,
                           itemBuilder: (ctx,i){
                             return  GestureDetector(
                               onTap: (){
@@ -202,17 +207,19 @@ class _HomePageState extends State<HomePage> {
                                  selectTopSale=i;
                                });
                               },
-                              child: Container(
+                              child: AnimatedContainer(
+                                duration: Duration(milliseconds: 400),
+                                curve: Curves.easeIn,
                                 decoration:i==selectTopSale? BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.0),
                                   boxShadow: [
                                     BoxShadow(
-                                      color:tn.primaryColor.withOpacity(0.75),
-                                      blurRadius: 10.0, // soften the shadow
-                                      spreadRadius: 0.2, //extend the shadow
+                                      color:tn.primaryColor.withOpacity(0.5),
+                                      blurRadius: 5.0, // soften the shadow
+                                      spreadRadius: 2, //extend the shadow
                                       offset: Offset(
                                         2.0, // Move to right 10  horizontally
-                                        4.0, // Move to bottom 10 Vertically
+                                        2.0, // Move to bottom 10 Vertically
                                       ),
                                     )
                                   ],
@@ -238,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                           },
                         )
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(height: 10,),
                       Container(
                         width: SizeConfig.screenWidth,
                         margin: EdgeInsets.only(left: 10,right: 10),
@@ -268,6 +275,7 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
+                      SizedBox(height: 15,),
                       Expanded(
                           child:isGridView? SingleChildScrollView(
                             physics: BouncingScrollPhysics(),
@@ -482,10 +490,108 @@ class _HomePageState extends State<HomePage> {
                                   itemCount: topSaleList.length,
                                   itemBuilder: (ctx,i){
                                       return Container(
-                                        height: 100,
+                                        height: 120,
                                         width: width,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(20),
+                                          color: Color(0xffF7F7F7),
+                                        ),
+                                        clipBehavior: Clip.antiAlias,
                                         margin: EdgeInsets.all(10),
-                                        color: Colors.red,
+                                        child: Container(
+                                          child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Container(
+                                                width: width*0.24,
+                                                height: 90,
+                                                margin: EdgeInsets.only(left: 10,right: 10),
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(15),
+                                                  color: Colors.white,
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Image.asset('assets/items-list/tomato.png',
+                                                  width: 70,fit: BoxFit.cover,),
+                                              ),
+
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    child: Text('Tomato Country',style: TextStyle(fontFamily: 'RB',color: Colors.black,fontSize: 14),),
+                                                  ),
+                                                  Container(
+                                                    child: RichText(
+                                                      text: TextSpan(
+                                                        text: '1 Kg ',
+                                                        style: TextStyle(color: Color(0xff000000),fontSize: 14,fontFamily: 'RR'),
+                                                        children: <TextSpan>[
+                                                          TextSpan(text: ' 35.00', style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0XFF919191),decoration: TextDecoration.lineThrough)),
+                                                          TextSpan(text: ' Rs.23.00', style: TextStyle(fontSize: 14,fontFamily: 'RB',color:tn.primaryColor,),),
+                                                        ],
+                                                      ),
+
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Spacer(),
+                                              Container(
+                                                width: 63,
+                                                height: 28,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(25),
+                                                  color:tn.primaryColor,
+                                                ),
+                                                alignment: Alignment.center,
+                                                child: Text('Add',style: TextStyle(color: Colors.white,fontSize: 14,fontFamily: 'RR'),),
+                                              ),
+                                               Spacer(),
+                                              Column(
+                                                children: [
+                                                  SizedBox(height: 15,),
+                                                  Container(
+                                                    width: 20,
+                                                    height: 20,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(20),
+                                                      color: Colors.white,
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color:Color(0xFF000000).withOpacity(0.15),
+                                                          blurRadius: 10.0, // soften the shadow
+                                                          spreadRadius: 0.1, //extend the shadow
+                                                          offset: Offset(
+                                                            4.0, // Move to right 10  horizontally
+                                                            4.0, // Move to bottom 10 Vertically
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    child: Icon(Icons.favorite,color: tn.primaryColor2,size: 18,),
+                                                  ),
+                                                  Spacer(),
+                                                  Container(
+                                                    width: 50,
+                                                    height: 30,
+                                                    decoration: BoxDecoration(
+                                                        color: tn.primaryColor,
+                                                        borderRadius: BorderRadius.only(
+                                                          topLeft: Radius.circular(20),
+                                                        )
+                                                    ),
+                                                    child: Center(
+                                                      child: Text("20%",style: TSWhite166,),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
                                       );
                                   }
                               )
@@ -536,12 +642,26 @@ class _HomePageState extends State<HomePage> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  height: 55,
-                  width: 55,
-                  margin: EdgeInsets.only(bottom: 32),
+                  height: 57,
+                  width: 57,
+                  margin: EdgeInsets.only(bottom: 25),
                   decoration: BoxDecoration(
                     color: tn.primaryColor,
-                    shape: BoxShape.circle
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color:tn.primaryColor.withOpacity(0.5),
+                        blurRadius: 10.0, // soften the shadow
+                        spreadRadius: 3, //extend the shadow
+                        offset: Offset(
+                          2.0, // Move to right 10  horizontally
+                          4.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ]
+                  ),
+                  child: Center(
+                    child: Image.asset("assets/items-list/cart.png",width: 30,),
                   ),
                 ),
               ),
