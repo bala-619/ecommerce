@@ -1,4 +1,5 @@
 import 'package:ecommerce/notifiers/themeNotifier.dart';
+import 'package:ecommerce/pages/HomePage/viewProductDetail.dart';
 import 'package:ecommerce/pages/theme-file.dart';
 import 'package:ecommerce/widgets/bottomPainter.dart';
 import 'package:ecommerce/widgets/companySettingsTextField.dart';
@@ -7,6 +8,8 @@ import 'package:ecommerce/styles/size.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'Cartpage.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -309,25 +312,30 @@ class _HomePageState extends State<HomePage> {
                                                 child: Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
-                                                    Container(
-                                                      width: 20,
-                                                      height: 20,
-                                                      decoration: BoxDecoration(
-                                                        borderRadius: BorderRadius.circular(20),
-                                                        color: Colors.white,
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                            color:Color(0xFF000000).withOpacity(0.15),
-                                                            blurRadius: 10.0, // soften the shadow
-                                                            spreadRadius: 0.1, //extend the shadow
-                                                            offset: Offset(
-                                                              0.0, // Move to right 10  horizontally
-                                                              0.0, // Move to bottom 10 Vertically
-                                                            ),
-                                                          )
-                                                        ],
+                                                    GestureDetector(
+                                                      onTap: (){
+                                                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewProductDetails()),);
+                                                      },
+                                                      child: Container(
+                                                        width: 20,
+                                                        height: 20,
+                                                        decoration: BoxDecoration(
+                                                          borderRadius: BorderRadius.circular(20),
+                                                          color: Colors.white,
+                                                          boxShadow: [
+                                                            BoxShadow(
+                                                              color:Color(0xFF000000).withOpacity(0.15),
+                                                              blurRadius: 10.0, // soften the shadow
+                                                              spreadRadius: 0.1, //extend the shadow
+                                                              offset: Offset(
+                                                                0.0, // Move to right 10  horizontally
+                                                                0.0, // Move to bottom 10 Vertically
+                                                              ),
+                                                            )
+                                                          ],
+                                                        ),
+                                                        child: Icon(Icons.remove_red_eye,color: tn.primaryColor2,size: 18,),
                                                       ),
-                                                      child: Icon(Icons.remove_red_eye,color: tn.primaryColor2,size: 18,),
                                                     ),
                                                     Container(
                                                       width: 20,
@@ -641,27 +649,32 @@ class _HomePageState extends State<HomePage> {
               ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 57,
-                  width: 57,
-                  margin: EdgeInsets.only(bottom: 25),
-                  decoration: BoxDecoration(
-                    color: tn.primaryColor,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color:tn.primaryColor.withOpacity(0.5),
-                        blurRadius: 10.0, // soften the shadow
-                        spreadRadius: 3, //extend the shadow
-                        offset: Offset(
-                          2.0, // Move to right 10  horizontally
-                          4.0, // Move to bottom 10 Vertically
-                        ),
-                      )
-                    ]
-                  ),
-                  child: Center(
-                    child: Image.asset("assets/items-list/cart.png",width: 30,),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()),);
+                  },
+                  child: Container(
+                    height: 57,
+                    width: 57,
+                    margin: EdgeInsets.only(bottom: 25),
+                    decoration: BoxDecoration(
+                      color: tn.primaryColor,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color:tn.primaryColor.withOpacity(0.5),
+                          blurRadius: 10.0, // soften the shadow
+                          spreadRadius: 3, //extend the shadow
+                          offset: Offset(
+                            2.0, // Move to right 10  horizontally
+                            4.0, // Move to bottom 10 Vertically
+                          ),
+                        )
+                      ]
+                    ),
+                    child: Center(
+                      child: Image.asset("assets/items-list/cart.png",width: 30,),
+                    ),
                   ),
                 ),
               ),
