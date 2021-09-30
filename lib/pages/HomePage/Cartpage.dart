@@ -155,16 +155,69 @@ class _CartPageState extends State<CartPage> {
                         }),
                         ),
                     ),
-
-                    Container(
-                        width: width*0.9,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text('Price Details',style: TextStyle(fontSize: 14,fontFamily: 'RB',color: Color(0xff878787)),),
-                          ),
-                        ],
+                     SizedBox(height: 10,),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        // margin: EdgeInsets.all(20),
+                        //   color: Colors.red,
+                          width: width*0.8,
+                        child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: Text('Price Details',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff878787),fontWeight: FontWeight.w600),),
+                            ),
+                            SizedBox(height: 15,),
+                            Container(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Price (1 items)',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
+                                  Text('₹3,250',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),)
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 15,),
+                            Container(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Discount',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
+                                  Text('- ₹1,051',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor),)
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 15,),
+                            Container(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Delivery Charges',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),),),
+                                  Text('FREE',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor,),)
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 40,),
+                            Container(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Total Amount',style: TextStyle(fontSize: 14,fontFamily: 'RB',color: Color(0xff2E2E2D),fontWeight: FontWeight.w600),),
+                                  Text('₹2,199',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0xff2E2E2D),fontWeight: FontWeight.w600),)
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 40,),
+                            Container(
+                              child: Text('You will save ₹1,050 on this order',style: TextStyle(fontSize: 14,fontFamily: 'RR',color: tn.primaryColor,fontWeight: FontWeight.w500),),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

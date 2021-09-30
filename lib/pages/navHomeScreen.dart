@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
+import 'HomePage/Cartpage.dart';
 import 'HomePage/LandingPage.dart';
+import 'HomePage/Notification.dart';
 import 'theme-file.dart';
 
 class Masterpage extends StatefulWidget {
@@ -82,7 +84,15 @@ class _MasterpageState extends State<Masterpage> {
                       scaffoldkey.currentState!.openEndDrawer();
                     },
                 ),
-
+                DrawerContent(
+                  title: 'Notifiction',
+                  ontap: (){
+                    setState(() {
+                      menuSel=3;
+                    });
+                    scaffoldkey.currentState!.openEndDrawer();
+                  },
+                ),
 
 
 
@@ -95,6 +105,11 @@ class _MasterpageState extends State<Masterpage> {
               scaffoldkey.currentState!.openDrawer();
             },
           ) :menuSel==2?ThemeSettings (
+            voidCallback:(){
+
+              scaffoldkey.currentState!.openDrawer();
+            },
+          ):menuSel==3?NotificationBar (
             voidCallback:(){
 
               scaffoldkey.currentState!.openDrawer();
