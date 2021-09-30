@@ -235,6 +235,12 @@ class _ViewProductDetailsState extends State<ViewProductDetails> {
     );
   }
 }
+
+
+
+
+
+
 addRemoveBtn(Widget icon){
   return Container(
     height: 25,

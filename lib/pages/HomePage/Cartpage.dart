@@ -82,6 +82,7 @@ class _CartPageState extends State<CartPage> {
                                 Container(
                                     width:width*0.8,
                                     height: 45,
+                                    alignment: Alignment.centerLeft,
                                     child: CompanySettingsTextField(hintText: "Search Product", img: "assets/search.png")
                                 ),
                                 Container(

@@ -1,6 +1,7 @@
 import 'package:ecommerce/notifiers/themeNotifier.dart';
 import 'package:ecommerce/styles/constants.dart';
 import 'package:ecommerce/styles/size.dart';
+import 'package:ecommerce/widgets/innerShadowTBContainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -168,83 +169,87 @@ class _NotificationBarState extends State<NotificationBar>with TickerProviderSta
                                      ],
                                    ),
                                  ),
-                              Container(
+                              InnerShadowTBContainer(
                                 height: SizeConfig.screenHeight!-230,
                                 width: SizeConfig.screenWidth!*1,
-                                // padding: EdgeInsets.only(left: 10,right: 10),
                                 child: ListView.builder(
-                                      scrollDirection: Axis.vertical,
-                                      itemCount: 20,
-                                      physics: BouncingScrollPhysics(),
-                                      itemBuilder: (ctx,i){
-                                        return Container(
-                                          margin: EdgeInsets.only(bottom: 15,left: 20,right: 20),
-                                          width: SizeConfig.screenWidth!*1,
-                                          height: 80,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(10),
-                                            border: Border.all(color: Color(0XFFF5F5F5)),
-                                            boxShadow: [
-                                              BoxShadow(color: Colors.black26, spreadRadius: 0,blurRadius: 9,
-                                                offset: Offset(
-                                                  0.0, // Move to right 10  horizontally
-                                                  5.0, // Move to bottom 10 Vertically),
-                                                ),),
-                                            ],
-                                            color: Color(0XFFffffff),
-                                          ),
-                                          child: Row(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            children: [
-                                               Container(
-                                                 child: Row(
-                                                   children: [
-                                                     Container(
-                                                       width: 40,
-                                                       height: 40,
-                                                       margin: EdgeInsets.only(left: 10),
-                                                       decoration: BoxDecoration(
-                                                         borderRadius: BorderRadius.circular(50),
-                                                         color: Color(0XFFDCE6DB),
-                                                       ),
-                                                       alignment: Alignment.center,
-                                                       child: Image.asset("assets/mail.png",width: 20,),
-                                                     ),
-                                                     Container(
-                                                       margin: EdgeInsets.only(left: 10),
-                                                       child: Column(
-                                                         mainAxisAlignment: MainAxisAlignment.center,
-                                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                                         children: [
-                                                           Text('Our shop lunched padi',style: TextStyle(fontSize: 16,fontFamily: 'RR',color: Color(0xff4C7843),fontWeight: FontWeight.w600),),
-                                                           SizedBox(height: 5,),
-                                                           Text('Your eligible this offer 3days only',style: TextStyle(fontSize: 13,fontFamily: 'RI',color: Color(0xffA1A1A1),),)
-                                                         ],
-                                                       ),
-                                                     ),
-                                                   ],
-                                                 ),
-                                               ),
-                                              Spacer(),
-                                              Container(
-                                                margin: EdgeInsets.only(right: 8,top: 10,bottom: 5),
-                                                child: Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                  children: [
-                                                    Opacity(
-                                                        opacity:0.5,
-                                                        child: Image.asset("assets/menu-circle.png",width: 20,)),
-                                                    Text('5 Min Ago',style: TextStyle(fontSize: 13,fontFamily: 'RR',color: Color(0xffA1A1A1),),)
-                                                  ],
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: 20,
+                                  physics: BouncingScrollPhysics(),
+                                  itemBuilder: (ctx,i){
+                                    return Container(
+                                      margin: EdgeInsets.only(bottom: 15,left: 20,right: 20,top:i==0? 10:0),
+                                      width: SizeConfig.screenWidth!*1,
+                                      height: 80,
+                                      decoration:i==0? BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: Color(0XFFF5F5F5)),
+                                        boxShadow: [
+                                          BoxShadow(color: Colors.black26, spreadRadius: 0,blurRadius: 9,
+                                            offset: Offset(
+                                              0.0, // Move to right 10  horizontally
+                                              5.0, // Move to bottom 10 Vertically),
+                                            ),),
+                                        ],
+                                        color: Color(0XFFffffff),
+                                      ): BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(color: Color(0XFFF5F5F5)),
+                                        color: Color(0XFFffffff),
+                                      ),
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            child: Row(
+                                              children: [
+                                                Container(
+                                                  width: 40,
+                                                  height: 40,
+                                                  margin: EdgeInsets.only(left: 10),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(50),
+                                                    color: Color(0XFFDCE6DB),
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Image.asset("assets/mail.png",width: 20,),
                                                 ),
-                                              ),
-                                            ],
+                                                Container(
+                                                  margin: EdgeInsets.only(left: 10),
+                                                  child: Column(
+                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text('Our shop lunched padi',style: TextStyle(fontSize: 16,fontFamily: 'RR',color: Color(0xff4C7843),fontWeight: FontWeight.w600),),
+                                                      SizedBox(height: 5,),
+                                                      Text('Your eligible this offer 3days only',style: TextStyle(fontSize: 13,fontFamily: 'RI',color: Color(0xffA1A1A1),),)
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
-                                        );
-                                      },
-                              ),
-                              ),
+                                          Spacer(),
+                                          Container(
+                                            margin: EdgeInsets.only(right: 8,top: 10,bottom: 5),
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.end,
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Opacity(
+                                                    opacity:0.5,
+                                                    child: Image.asset("assets/menu-circle.png",width: 20,)),
+                                                Text('5 Min Ago',style: TextStyle(fontSize: 13,fontFamily: 'RR',color: Color(0xffA1A1A1),),)
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              )
+
                             ],
                           ),
                         ),

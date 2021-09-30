@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 import 'HomePage/Cartpage.dart';
 import 'HomePage/LandingPage.dart';
 import 'HomePage/Notification.dart';
+import 'HomePage/offerPage.dart';
+import 'loginpage/login.dart';
 import 'theme-file.dart';
 
 class Masterpage extends StatefulWidget {
@@ -85,7 +87,7 @@ class _MasterpageState extends State<Masterpage> {
                     },
                 ),
                 DrawerContent(
-                  title: 'Notifiction',
+                  title: 'Notification',
                   ontap: (){
                     setState(() {
                       menuSel=3;
@@ -93,9 +95,22 @@ class _MasterpageState extends State<Masterpage> {
                     scaffoldkey.currentState!.openEndDrawer();
                   },
                 ),
-
-
-
+                DrawerContent(
+                  title: 'Offer',
+                  ontap: (){
+                    setState(() {
+                      menuSel=4;
+                    });
+                    scaffoldkey.currentState!.openEndDrawer();
+                  },
+                ),
+                 Spacer(),
+                DrawerContent(
+                  title: 'LogOut',
+                  ontap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>loginPage()),);
+                  },
+                ),
                 // Divider(color: Color(0xff099FAF),thickness: 0.1,),
               ],
             ),
@@ -114,7 +129,12 @@ class _MasterpageState extends State<Masterpage> {
 
               scaffoldkey.currentState!.openDrawer();
             },
-          ) :Container(),
+          ) :menuSel==4?OfferPage (
+            voidCallback:(){
+
+              scaffoldkey.currentState!.openDrawer();
+            },
+          )  :Container(),
         ),
       ),
 

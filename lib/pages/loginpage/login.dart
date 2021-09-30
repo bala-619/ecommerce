@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/pages/HomePage/LandingPage.dart';
+import 'package:ecommerce/pages/loginpage/EnterEmail.dart';
 import 'package:flutter/material.dart';
 
 import '../navHomeScreen.dart';
@@ -165,9 +166,9 @@ class _loginPageState extends State<loginPage> {
                                   ),
 
                                   hintText: 'Enter Email / Phone Number',
-                                  errorStyle: TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
+                                  errorStyle: TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),),
                                   contentPadding:EdgeInsets.symmetric(vertical: 18, horizontal: 20),
-                                  hintStyle:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
+                                  hintStyle:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),),
                                   errorText: _validate ? 'Value Can\'t Be Empty' : null,
                                 ),
                                 // inputFormatters: [
@@ -205,9 +206,9 @@ class _loginPageState extends State<loginPage> {
                                   ),
 
                                   hintText: 'Enter Password',
-                                  errorStyle: TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
+                                  errorStyle: TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),),
                                   contentPadding:EdgeInsets.symmetric(vertical: 18, horizontal: 20),
-                                  hintStyle:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),letterSpacing: 2.0,),
+                                  hintStyle:TextStyle(fontSize: 14,fontFamily:'RR',color:Color(0XFFBCBBCD),),
                                   errorText: _validate ? 'Value Can\'t Be Empty' : null,
                                 ),
                                 // inputFormatters: [
@@ -238,7 +239,7 @@ class _loginPageState extends State<loginPage> {
                       GestureDetector(
                         onTap: (){
 
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Masterpage()),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>EmailPage()),);
 
 
                         },

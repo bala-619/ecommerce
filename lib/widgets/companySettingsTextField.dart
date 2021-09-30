@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class CompanySettingsTextField extends StatelessWidget {
   String hintText;
   String img;
-  CompanySettingsTextField({required this.hintText,required this.img});
+  bool enable;
+  CompanySettingsTextField({required this.hintText,required this.img,this.enable=true});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +14,9 @@ class CompanySettingsTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(30.0), color: Colors.white,
       ) ,
       alignment: Alignment.centerLeft,
-      width: SizeConfig.width5,
+      //width: SizeConfig.width5,
       child: TextField(
+        enabled: enable,
         // controller: _text1,
   //      textAlignVertical: TextAlignVertical.center,
         textAlign: TextAlign.left,
@@ -38,7 +40,7 @@ class CompanySettingsTextField extends StatelessWidget {
             alignment: Alignment.center,
             child: Image.asset(img,width: 20,color:Color(0xffB6B6B6) ,fit:BoxFit.cover,),
           ),
-          contentPadding: EdgeInsets.symmetric(vertical: 5),
+          contentPadding: EdgeInsets.symmetric(vertical:enable? 5:10),
           prefixIconConstraints: BoxConstraints(
               maxHeight: 50,
               maxWidth: 50,
