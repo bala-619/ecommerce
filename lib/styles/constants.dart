@@ -23,6 +23,31 @@ const Color addNewTextFieldFocusBorder=Color(0xFF6B6B6B);
  late String prefPassword;
 
 
+
+ const kPrimaryColor = Color(0xFFFF7643);
+ const kTextColor = Color(0xFF757575);
+
+ final headingStyle = TextStyle(
+  fontSize:28,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
+  height: 1.5,
+ );
+
+ final otpInputDecoration = InputDecoration(
+  contentPadding:
+  EdgeInsets.symmetric(vertical: 15),
+  border: UnderlineInputBorder(),
+  focusedBorder: UnderlineInputBorder(),
+  enabledBorder: UnderlineInputBorder(),
+ );
+
+ OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+   // borderRadius: BorderRadius.circular(15),
+   // borderSide: BorderSide(color: kTextColor),
+  );
+ }
  //rawScrollBar Properties
   const Color srollBarColor=Colors.grey;
   const double scrollBarRadius=5.0;

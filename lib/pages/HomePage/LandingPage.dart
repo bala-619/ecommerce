@@ -171,6 +171,7 @@ class _HomePageState extends State<HomePage> {
                                   },
                                 )
                             ),
+                            SizedBox(height: 10,),
                             Container(
                               width: SizeConfig.screenWidth,
                               margin: EdgeInsets.only(left: 10,right: 10),
@@ -264,7 +265,7 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text('Top Sale',style: TextStyle(fontFamily: 'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
+                                  Text('Top Sale',style: TextStyle(fontFamily:'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
                                   Row(
                                     children: [
                                       Padding(
@@ -279,7 +280,8 @@ class _HomePageState extends State<HomePage> {
                                           width: 20,
                                           height: 20,
                                           decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(5.0),
+                                              borderRadius: BorderRadius.
+                                              circular(5.0),
                                               //border: Border.all(color: Color(0xff5D5C51),style:BorderStyle.solid )
                                               color:tn.primaryColor
                                           ) ,
@@ -291,7 +293,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                             SizedBox(height: 15,),
-                            Expanded(
+                            Container(
                                 child:isGridView? Wrap(
                                   children: topSaleList.asMap().map((key, value) => MapEntry(key, Container(
                                     height: 225,
@@ -502,115 +504,118 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ))).values.toList(),
                                 ):
-                                ListView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    itemCount: topSaleList.length,
-                                    itemBuilder: (ctx,i){
-                                      return Container(
-                                        height: 120,
-                                        width: width,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(20),
-                                          color: Color(0xffF7F7F7),
-                                        ),
-                                        clipBehavior: Clip.antiAlias,
-                                        margin: EdgeInsets.all(10),
-                                        child: Container(
-                                          child: Row(
-                                            crossAxisAlignment: CrossAxisAlignment.center,
-                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                            children: [
-                                              Container(
-                                                width: width*0.24,
-                                                height: 90,
-                                                margin: EdgeInsets.only(left: 10,right: 10),
-                                                decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(15),
-                                                  color: Colors.white,
-                                                ),
-                                                alignment: Alignment.center,
-                                                child: Image.asset('assets/items-list/tomato.png',
-                                                  width: 70,fit: BoxFit.cover,),
-                                              ),
-
-                                              Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                mainAxisAlignment: MainAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    child: Text('Tomato Country',style: TextStyle(fontFamily: 'RB',color: Colors.black,fontSize: 14),),
+                                Container(
+                                  height: topSaleList.length*120,
+                                  child: ListView.builder(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      itemCount:topSaleList.length ,
+                                      itemBuilder: (ctx,i){
+                                        return Container(
+                                          height: 120,
+                                          width: width,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            color: Color(0xffF7F7F7),
+                                          ),
+                                          clipBehavior: Clip.antiAlias,
+                                          margin: EdgeInsets.all(10),
+                                          child: Container(
+                                            child: Row(
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Container(
+                                                  width: width*0.24,
+                                                  height: 90,
+                                                  margin: EdgeInsets.only(left: 10,right: 10),
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(15),
+                                                    color: Colors.white,
                                                   ),
-                                                  Container(
-                                                    child: RichText(
-                                                      text: TextSpan(
-                                                        text: '1 Kg ',
-                                                        style: TextStyle(color: Color(0xff000000),fontSize: 14,fontFamily: 'RR'),
-                                                        children: <TextSpan>[
-                                                          TextSpan(text: ' 35.00', style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0XFF919191),decoration: TextDecoration.lineThrough)),
-                                                          TextSpan(text: ' Rs.23.00', style: TextStyle(fontSize: 14,fontFamily: 'RB',color:tn.primaryColor,),),
+                                                  alignment: Alignment.center,
+                                                  child: Image.asset('assets/items-list/tomato.png',
+                                                    width: 70,fit: BoxFit.cover,),
+                                                ),
+
+                                                Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+                                                    Container(
+                                                      child: Text('Tomato Country',style: TextStyle(fontFamily: 'RB',color: Colors.black,fontSize: 14),),
+                                                    ),
+                                                    Container(
+                                                      child: RichText(
+                                                        text: TextSpan(
+                                                          text: '1 Kg ',
+                                                          style: TextStyle(color: Color(0xff000000),fontSize: 14,fontFamily: 'RR'),
+                                                          children: <TextSpan>[
+                                                            TextSpan(text: ' 35.00', style: TextStyle(fontSize: 14,fontFamily: 'RR',color: Color(0XFF919191),decoration: TextDecoration.lineThrough)),
+                                                            TextSpan(text: ' Rs.23.00', style: TextStyle(fontSize: 14,fontFamily: 'RB',color:tn.primaryColor,),),
+                                                          ],
+                                                        ),
+
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Spacer(),
+                                                Container(
+                                                  width: 63,
+                                                  height: 28,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(25),
+                                                    color:tn.primaryColor,
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Text('Add',style: TextStyle(color: Colors.white,fontSize: 14,fontFamily: 'RR'),),
+                                                ),
+                                                Spacer(),
+                                                Column(
+                                                  children: [
+                                                    SizedBox(height: 15,),
+                                                    Container(
+                                                      width: 20,
+                                                      height: 20,
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(20),
+                                                        color: Colors.white,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            color:Color(0xFF000000).withOpacity(0.15),
+                                                            blurRadius: 10.0, // soften the shadow
+                                                            spreadRadius: 0.1, //extend the shadow
+                                                            offset: Offset(
+                                                              4.0, // Move to right 10  horizontally
+                                                              4.0, // Move to bottom 10 Vertically
+                                                            ),
+                                                          )
                                                         ],
                                                       ),
-
+                                                      child: Icon(Icons.favorite,color: tn.primaryColor2,size: 18,),
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Spacer(),
-                                              Container(
-                                                width: 63,
-                                                height: 28,
-                                                decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(25),
-                                                  color:tn.primaryColor,
-                                                ),
-                                                alignment: Alignment.center,
-                                                child: Text('Add',style: TextStyle(color: Colors.white,fontSize: 14,fontFamily: 'RR'),),
-                                              ),
-                                              Spacer(),
-                                              Column(
-                                                children: [
-                                                  SizedBox(height: 15,),
-                                                  Container(
-                                                    width: 20,
-                                                    height: 20,
-                                                    decoration: BoxDecoration(
-                                                      borderRadius: BorderRadius.circular(20),
-                                                      color: Colors.white,
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          color:Color(0xFF000000).withOpacity(0.15),
-                                                          blurRadius: 10.0, // soften the shadow
-                                                          spreadRadius: 0.1, //extend the shadow
-                                                          offset: Offset(
-                                                            4.0, // Move to right 10  horizontally
-                                                            4.0, // Move to bottom 10 Vertically
-                                                          ),
-                                                        )
-                                                      ],
+                                                    Spacer(),
+                                                    Container(
+                                                      width: 50,
+                                                      height: 30,
+                                                      decoration: BoxDecoration(
+                                                          color: tn.primaryColor,
+                                                          borderRadius: BorderRadius.only(
+                                                            topLeft: Radius.circular(20),
+                                                          )
+                                                      ),
+                                                      child: Center(
+                                                        child: Text("20%",style: TSWhite166,),
+                                                      ),
                                                     ),
-                                                    child: Icon(Icons.favorite,color: tn.primaryColor2,size: 18,),
-                                                  ),
-                                                  Spacer(),
-                                                  Container(
-                                                    width: 50,
-                                                    height: 30,
-                                                    decoration: BoxDecoration(
-                                                        color: tn.primaryColor,
-                                                        borderRadius: BorderRadius.only(
-                                                          topLeft: Radius.circular(20),
-                                                        )
-                                                    ),
-                                                    child: Center(
-                                                      child: Text("20%",style: TSWhite166,),
-                                                    ),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
+                                                  ],
+                                                )
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    }
+                                        );
+                                      }
+                                  ),
                                 )
                             )
                           ],

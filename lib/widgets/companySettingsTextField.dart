@@ -33,6 +33,12 @@ class CompanySettingsTextField extends StatelessWidget {
             borderSide: BorderSide(color: Color(0xff6A8528)),
             borderRadius: BorderRadius.circular(30.0),
           ),
+          border: InputBorder.none,
+          errorBorder: InputBorder.none,
+          focusedErrorBorder: InputBorder.none,
+
+
+          
           hintText: hintText,
           hintStyle:TextStyle(fontSize: 15,fontFamily:'RR',color:Color(0xffB6B6B6)),
           prefixIcon: Container(

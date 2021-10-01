@@ -78,7 +78,7 @@ class _MasterpageState extends State<Masterpage> {
                     },
                 ),
                 DrawerContent(
-                    title: 'Theme',
+                    title: 'Settings',
                     ontap: (){
                       setState(() {
                         menuSel=2;
