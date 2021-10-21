@@ -1,5 +1,6 @@
 import 'package:ecommerce/notifiers/themeNotifier.dart';
 import 'package:ecommerce/pages/HomePage/LandingPage.dart';
+import 'package:ecommerce/pages/loginpage/owl-carosaul.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'loginHomePage.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-     //   home:HomePage(),
+       // home:CarouselDemo(),
         home: LoginHomePage(),
       ),
     );
