@@ -1,6 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ecommerce/notifiers/themeNotifier.dart';
 import 'package:ecommerce/pages/HomePage/ViewAll.dart';
 import 'package:ecommerce/pages/HomePage/viewProductDetail.dart';
+import 'package:ecommerce/pages/loginpage/owl-carosaul.dart';
 import 'package:ecommerce/pages/theme-file.dart';
 import 'package:ecommerce/widgets/bottomPainter.dart';
 import 'package:ecommerce/widgets/companySettingsTextField.dart';
@@ -33,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   
 
   Widget build(BuildContext context) {
+    List<int> list = [1, 2, 3, 4, 5];
     width=MediaQuery.of(context).size.width;
     height=MediaQuery.of(context).size.height;
     gridWidth=width-30;
@@ -126,50 +129,65 @@ class _HomePageState extends State<HomePage> {
                         height: height-235,
                         width: width,
                         child: ListView(
+
                           children: [
+                            SizedBox(height: 10,),
                             Container(
-                                width: SizeConfig.screenWidth,
-                                height: 140,
-                                padding: EdgeInsets.only(left: 10,top: 20),
-                                child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: 3,
-                                  physics: BouncingScrollPhysics(),
-                                  itemBuilder: (ctx,i){
-                                    return   Container(
-                                      margin: EdgeInsets.only(right: 10.0),
-                                      width:SizeConfig.screenWidth!*0.6,
-                                      height: 140,
-                                      child: Stack(
-                                        children: [
-                                          Container(
-                                            child: Image.asset('assets/offer-slider.png',fit: BoxFit.cover,),
-                                          ),
-                                          Container(
-                                            margin: EdgeInsets.only(left: 20,top: 10),
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.start,
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                Text('60 % Offer',style: TextStyle(fontFamily: 'RI',fontSize: 18,color: Color(0xffF82023),fontWeight: FontWeight.bold),),
-                                                Text('First User Use this promo',style: TextStyle(fontFamily: 'RI',fontSize: 12,color: Color(0xff5D5C51)),),
-                                                SizedBox(height: 2,),
-                                                Container(
-                                                  padding: EdgeInsets.fromLTRB(8,3,8,3),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(5.0),
-                                                    color:Color(0xff6A8528),
-                                                  ) ,
-                                                  child: Text('WELCOME60',style: TextStyle(fontFamily: 'RR',fontSize: 12,color: Color(0xffffffff)),
-                                                  ),
+                              color: Color(0XFFF5F5F5),
+                                child:  CarouselSlider(
+                                  options: CarouselOptions(
+                                    // aspectRatio: 16/9,
+                                    height: 200,
+                                    viewportFraction: 1,
+                                    // initialPage: 0,
+                                    enableInfiniteScroll: true,
+                                    reverse: false,
+                                    autoPlay: true,
+                                    autoPlayInterval: Duration(seconds: 3),
+                                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                                    autoPlayCurve: Curves.fastOutSlowIn,
+                                    enlargeCenterPage: false,
+                                    scrollDirection: Axis.horizontal,
+                                    // enlargeCenterPage: false,
+                                  ),
+                                  items: list
+                                      .map((item) => Container(
+                                    child: Stack(
+                                      children: [
+                                        Image.asset('assets/slider/slider-03.jpg',fit: BoxFit.cover,width: SizeConfig.screenWidth,),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 20,top: 10),
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.start,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                width:SizeConfig.screenWidth!*0.4,
+                                                  child: Text('Don\'t miss amazing grocery deals',style: TextStyle(fontFamily: 'RB',fontSize: 24,color: Color(0xff000000),fontWeight: FontWeight.bold),)
+                                              ),
+                                              SizedBox(height: 10,),
+                                              Container(
+                                                  width:SizeConfig.screenWidth!*0.4,
+                                                  child: Text('Save upto 50% off on your first order',style: TextStyle(fontFamily: 'RR',fontSize: 12,color: Color(0xff5D5C51)),)
+                                              ),
+                                              SizedBox(height: 20,),
+                                              Container(
+                                                padding: EdgeInsets.fromLTRB(8,3,8,3),
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(5.0),
+                                                  color:Color(0xff6A8528),
+                                                ) ,
+                                                child: Text('Order Now',style: TextStyle(fontFamily: 'RR',fontSize: 14,color: Color(0xffffffff)),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+
+                                            ],
                                           ),
-                                        ],
-                                      ),
-                                    );
-                                  },
+                                        ),
+                                      ],
+                                    ),
+                                  ))
+                                      .toList(),
                                 )
                             ),
                             SizedBox(height: 10,),
@@ -257,6 +275,61 @@ class _HomePageState extends State<HomePage> {
                                     );
                                   },
                                 )
+                            ),
+                            SizedBox(height: 10,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child: Text('Featured Brands',style: TextStyle(fontFamily:'RB',fontSize: 18,color: Color(0xff000000),fontWeight: FontWeight.bold),),
+                                ),
+                                Container(
+                                    width: SizeConfig.screenWidth,
+                                    height: 140,
+                                    padding: EdgeInsets.only(left: 10,top: 10),
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: 3,
+                                      physics: BouncingScrollPhysics(),
+                                      itemBuilder: (ctx,i){
+                                        return   Container(
+                                          margin: EdgeInsets.only(right: 10.0),
+                                          width:SizeConfig.screenWidth!*0.6,
+                                          height: 140,
+                                          child: Stack(
+                                            children: [
+                                              Container(
+                                                child: Image.asset('assets/offer-slider.png',fit: BoxFit.cover,),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(left: 20,top: 10),
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.start,
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('60 % Offer',style: TextStyle(fontFamily: 'RI',fontSize: 18,color: Color(0xffF82023),fontWeight: FontWeight.bold),),
+                                                    Text('First User Use this promo',style: TextStyle(fontFamily: 'RI',fontSize: 12,color: Color(0xff5D5C51)),),
+                                                    SizedBox(height: 2,),
+                                                    Container(
+                                                      padding: EdgeInsets.fromLTRB(8,3,8,3),
+                                                      decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(5.0),
+                                                        color:Color(0xff6A8528),
+                                                      ) ,
+                                                      child: Text('WELCOME60',style: TextStyle(fontFamily: 'RR',fontSize: 12,color: Color(0xffffffff)),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    )
+                                ),
+                              ],
                             ),
                             SizedBox(height: 10,),
                             Container(
